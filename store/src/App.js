@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch,Route } from 'react-router-dom';
-
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
 import Details from './components/Details';
 import Navbar from './components/Navbar';
 import Default from './components/Default';
+
 
 
 class App extends Component {
@@ -22,8 +22,6 @@ class App extends Component {
           <Route  component={Default} />
         </Switch>
         </React.Fragment>
-       
-     
     );
   }
 }
