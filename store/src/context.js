@@ -7,7 +7,7 @@ const ProductContext = React.createContext();
 class ProductProvider extends Component
 {
     state = {
-        product: storeProducts,
+        products: storeProducts,
         detailProduct: detailProduct
     }
     handleDetail = () =>
@@ -23,10 +23,8 @@ class ProductProvider extends Component
         <ProductContext.Provider value={{
             ...this.state,
             handleDetail: this.handleDetail,
-            addToCart:this.addToCart
-            
-        }}
-        >
+                addToCart: this.addToCart            
+        }}>    
 
             {this.props.children}
         </ProductContext.Provider>
