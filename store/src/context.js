@@ -18,26 +18,21 @@ class ProductProvider extends Component
     {
         console.log( 'hello from add to cart' );
     };
-  render() {
-      return (
-          <ProductContext.Provider value={{
-              ...this.state,
-              handleDetail: this.handleDetail,
-              addToCart:this.addToCart
-             
-        }} >
+    render() {
+        return (
+        <ProductContext.Provider value={{
+            ...this.state,
+            handleDetail: this.handleDetail,
+            addToCart:this.addToCart
+            
+        }}
+        >
 
-              {this.props.children}
-
-
-          </ProductContext.Provider>
-      
-    
+            {this.props.children}
+        </ProductContext.Provider>
         
-        
-      
-      );
-  }
+        );
+    }
 }
 const ProductConsumer = ProductContext.Consumer;
 
