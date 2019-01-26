@@ -54,6 +54,7 @@ d                      price : <span>$</span>
                       onClick={() =>
                       {
                         value.addToCart( id );
+                        value.openModal( id );
                       }}
                     >
                         {inCart ? 'inCart' : 'add to cart'}

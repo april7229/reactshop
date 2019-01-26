@@ -8,7 +8,14 @@ class ProductProvider extends Component
 {
     state = {
         products: [],
-        detailProduct: detailProduct
+        detailProduct: detailProduct,
+        cart: storeProducts,
+        modalOpen: false,
+        modalProduct: detailProduct,
+        cartSubTotal: 0,
+        cartTax: 0,
+        cartTotal:0
+        
     };
     componentDidMount()
     {
@@ -24,17 +31,46 @@ class ProductProvider extends Component
         } )
         this.setState( () =>
         {
-            return {products: tempProducts}
-        })
-    }
-    handleDetail = () =>
+            return { products: tempProducts }
+        } )
+    };
+
+     
+    getItem = ( id ) =>
     {
-        console.log( 'hello from detail' );
+        const product = this.state.products.find( item => item.id === id );
+        return product;
+}
+
+    handleDetail = id =>
+    {
+        const product = this.getItem(id);
+        this.setState( () =>
+        {
+            return { detailProduct: product };
+        })
     };
     addToCart = (id) =>
     {
-        console.log( `hello from add to cart.id is ${id}` );
-                
+        let tempProducts = [ ...this.state.products ];
+        const index = tempProducts.indexOf( this.getItem( id ) );
+        const product = tempProducts[ index ];
+        product.inCart = true;
+        product.count = 1;
+        const price = product.price;
+        product.total = price;
+        this.setState( () =>
+        {
+            return { products: tempProducts, cart: [ ...this.state.cart, product ] };
+        
+        },
+            () =>
+            {
+                console.log( this.state );
+            }
+            
+        );
+
     };
     // tester = () =>
     // {
@@ -53,12 +89,51 @@ class ProductProvider extends Component
     //     })
         
     // }
+    openModal = id =>
+    {
+        const product = this.getItem( id );
+        this.setState( () =>
+        {
+            return{modalProduct:product, modalOpen:true}
+        })
+    }
+    closeModal = id =>
+    {
+        this.setState( () =>
+        {
+            return {modalOpen:false}
+        })
+    }
+    increment = ( id ) => {
+            
+        console.log('this is increment method');
+    }
+    decrement = ( id ) =>
+    {
+        console.log( "this is increment method" );
+    }
+    removeItem = ( id ) =>
+    {
+        console.log( 'item removed' );
+    }
+    clearCart = () =>
+    {
+        console.log( 'cart was cleared' );
+    }
     render() {
         return (
         <ProductContext.Provider value={{
             ...this.state,
             handleDetail: this.handleDetail,
-                addToCart: this.addToCart            
+                addToCart: this.addToCart,
+                openModal: this.openModal,
+                closeModal: this.closeModal,
+                increment: this.increment,
+                decrement: this.decrement,
+                removeItem: this.removeItem,
+                clearCart: this.clearCart
+
+                
             }}>
                 {/* <button onClick={this.tester}>test me</button>   */}
 
