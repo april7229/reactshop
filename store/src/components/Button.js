@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 
-export  const ButtonContainer = styled.button`
+export const ButtonContainer = styled.button`
   text-transform: capitalize;
   font-size: 1.4em;
   background: transparent;
   border: 0.05rem solid var(--lightBlue);
-  color: var(--lightBlue);
+  border-color:${prop => prop.cart ? "var(--mainYellow)" : "var(--lightBlue)"};
+  color:${prop => prop.cart ? "var(--mainYellow)" : "var(--lightBlue)"};
   border-radius: 0.5rem;
   padding: 0.2rem 0.5rem;
   cursor: pointer;
@@ -19,4 +20,4 @@ export  const ButtonContainer = styled.button`
   &:focus {
     outline: none;
   }
-`
+`;
