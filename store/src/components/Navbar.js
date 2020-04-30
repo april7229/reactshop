@@ -25,7 +25,7 @@ https://www.iconfinder.com/Makoto_msk */}
         <ul className="navbar-nav align-items-center">
           <li className="nav-item ml-5">
             <Link to="/" className="nav-link">
-              products
+              Perfectly Imperfect
             </Link>
           </li>
         </ul>
@@ -43,7 +43,7 @@ https://www.iconfinder.com/Makoto_msk */}
 }
 
 const NavWrapper = styled.nav`
-background:var(--mainBlue);
+background:var(--Lightpink);
 .nav-link{
     color:var(--mainWhite)!important;
     font-size:1.3rem;
