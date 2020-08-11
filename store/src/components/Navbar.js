@@ -16,7 +16,7 @@ https://www.iconfinder.com/Makoto_msk */}
         <Link to="/">
           <img
             src={logo}
-            alt="store"
+            alt="Perfectly Impefect"
             className="navbar-brand"
             height="52"
             width="100"

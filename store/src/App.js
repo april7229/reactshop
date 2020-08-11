@@ -24,8 +24,11 @@ class App extends Component {
         </Switch>
         <Modal />
         </React.Fragment>
+
+        
     );
   }
 }
+
 
 export default App;
